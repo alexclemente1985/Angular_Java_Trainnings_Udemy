@@ -1,5 +1,6 @@
 package com.alexandre.udemy.cursocompletojava.springbootjpahib.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -19,7 +20,9 @@ public class Category implements Serializable {
     private String name;
 
     /*impede que o jpa interprete essa parte*/
-    @Transient
+    //@Transient
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
     public Category(){}
