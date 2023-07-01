@@ -21,7 +21,7 @@ public class Category implements Serializable {
 
     /*impede que o jpa interprete essa parte*/
     //@Transient
-    @JsonIgnore
+    //@JsonIgnore //Pode ser aqui tbm esse @JsonIgnore
     @ManyToMany(mappedBy = "categories")
     private Set<Product> products = new HashSet<>();
 
@@ -48,6 +48,7 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    @JsonIgnore
     public Set<Product> getProducts() {
         return this.products;
     }

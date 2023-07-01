@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Embeddable
 public class OrderItemPK implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @ManyToOne
@@ -24,15 +23,12 @@ public class OrderItemPK implements Serializable {
     public Order getOrder() {
         return order;
     }
-
     public void setOrder(Order order) {
         this.order = order;
     }
-
     public Product getProduct() {
         return product;
     }
-
     public void setProduct(Product product) {
         this.product = product;
     }
@@ -44,7 +40,6 @@ public class OrderItemPK implements Serializable {
         OrderItemPK that = (OrderItemPK) o;
         return Objects.equals(order, that.order) && Objects.equals(product, that.product);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(order, product);

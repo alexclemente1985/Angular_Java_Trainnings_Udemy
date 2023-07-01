@@ -2,10 +2,10 @@ package com.alexandre.udemy.cursocompletojava.springbootjpahib.entities;
 
 import com.alexandre.udemy.cursocompletojava.springbootjpahib.entities.pk.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import org.aspectj.weaver.ast.Or;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,11 +13,11 @@ import java.util.Objects;
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
     private OrderItemPK id = new OrderItemPK();
+
     private Integer quantity;
     private Double price;
 
