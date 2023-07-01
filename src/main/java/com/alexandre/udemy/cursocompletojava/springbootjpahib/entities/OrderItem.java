@@ -2,11 +2,9 @@ package com.alexandre.udemy.cursocompletojava.springbootjpahib.entities;
 
 import com.alexandre.udemy.cursocompletojava.springbootjpahib.entities.pk.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-
 import java.io.Serializable;
 import java.util.Objects;
 
