@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+  postgres-javaComp:
+    image: postgres
+    environment:
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "D:/Trainings/dockerVolumes/udemy/java/javaComp/postgres:/var/lib/postgresql/data"
+    networks:
+      - postgres-javaComp-network
+
+  pgadmin-javaComp:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "8081:80"
+    depends_on:
+      - postgres-javaComp
+    networks:
+      - postgres-javaComp-network
+
+networks:
+  postgres-javaComp-network:
+    driver: bridge
