@@ -2,6 +2,7 @@ package com.alexandre.udemy.cursocompletojava.springbootjpahib.services;
 
 import com.alexandre.udemy.cursocompletojava.springbootjpahib.entities.User;
 import com.alexandre.udemy.cursocompletojava.springbootjpahib.repositories.UserRepository;
+import com.alexandre.udemy.cursocompletojava.springbootjpahib.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,9 @@ public class UserService {
 
     public User findById(Long id){
         Optional<User> obj = repository.findById(id);
-
-        return obj.get();
+    //exceção 500 se user não estiver presente
+    //    return obj.get();
+        return obj.orElseThrow(()-> new ResourceNotFoundException(id));
     }
 
     public User insert(User obj){
